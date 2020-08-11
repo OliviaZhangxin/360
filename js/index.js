@@ -1,0 +1,19 @@
+$(function(){
+    //调用插件的初始化方法
+    $('#box').fullpage({
+        //对插件进行各种配置
+        //设置滑动速度
+        ScrollingSpeed:1000,
+        //设置背景颜色
+        sectionsColor:['pink','green','skyblue','hotpink','#99da'],
+        //滚动到某一屏的回调函数
+        afterLoad:function(link,index){
+            $('.section').removeClass('current')
+            // $('.section').eq(index-1).addClass('current')
+        //解决第一屏不做动画的问题
+        setTimeout(function(){
+            $('.section').eq(index-1).addClass('current')
+        },1)
+        }
+    })
+})
